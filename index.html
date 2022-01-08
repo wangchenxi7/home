@@ -14,12 +14,17 @@
   white-space: pre-wrap;      /* current browsers */
 }
 
+/*
 div {
-	width: 600px;
+	width: 900px;
   margin-bottom: 16px;
 }
+*/
 
-
+div.content {
+	max-width: 1100px;
+	margin: 20px;
+}
 
 photo	{
 	position: relative;
@@ -111,17 +116,26 @@ service {
 	</photo_logo>	
 
 
+ 
+<div class="content">
+	
 	<news class="relative">
 	 <strong>
 		</br>
 		</br>
 		</br>
-		I am on the job market this year (2021-2022). Please feel free to contact me if you are hiring!
+		I am on the job market this year (2021-2022). Please feel free to contact me if you are hiring! 
+		<a href="files/CV.pdf">CV</a>,
+		<a href="files/Research_Statement.pdf">Research Statement</a>,
+		<a href="files/Teaching_Statement.pdf">Teaching Statement</a>
+
 	 </strong>
 	</news>
 
+
+
 	<aboutMe class="relative">
-	<h2> About me </h2>
+	<h1> About me </h1>
 		I'm a postdoc at UCLA working with <a href="http://web.cs.ucla.edu/~harryxu/">Dr. Harry Xu</a>. I got my Ph.D. degree from the Institute of Computing Technology, Chinese Academy of Science in 2018, under the supervision of <a href="http://sourcedb.ict.cas.cn/en/eictexpert/fas/200909/t20090917_2496613.html">Dr. Xiaobing Feng</a>. I got my Bachelor degree from Tianjin University in 2013. My research interest is to build hard-core systems, managed runtime and big data systems for emerging hardware, such as non-volatile memory and resource-disaggregated datacenter. </br>
 	</br>
 	<a href="https://github.com/wangchenxi7">View My Github</a>
@@ -130,18 +144,18 @@ service {
 
 
 	<research class="relative">
-	<h2>Research </h2>
+	<h1>Research</h1>
 
-	My current research is to build cross-layer systems for warehouse-scale computers. This research is supported by the NSF CNS on Big Data over resource disaggregation and NSF grant on redesign of data plane for memory-disaggregated datacenters (as the senior personnel).
+	My current research is to build cross-layer systems for warehouse-scale computers. This research is supported by the NSF CNS on Big Data over resource disaggregation and NSF grant on redesign of data plane for memory-disaggregated datacenters (Role: Senior Personnel).
 
 	<h3>Runtime for Hybrid Memory </h3>
 	Non-volatile memory(NVM) was developed to satisfy the rapidly increasing memory demand of data-intensive applications. Compared to DRAM, NVM offers much larger capacity, lower price, and higher energy efficiency. On the downside, NVM has longer access latency and lower read/write bandwidth. Therefore, cloud infrastructures often deploy NVM together with DRAM in a hybrid manner.
 
-To maximize the energy savings and minimize the performance impact of hybrid memory, I have built several runtime systems, <a href="http://web.cs.ucla.edu/~harryxu/papers/wang-pldi19.pdf">[PLDI'19]</a>  <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-47099-3_3">[NPC'16]</a> <a href="">[TOCS'22]</a>, to manage the data layout of cloud applications. These systems are built on two major insights. First, the data objects of many cloud applications exhibit strong epoch behaviors and clear access patterns at a coarse granularity. Hence, I proposed to manage data layout at coarse-grained levels, e.g., data structure and function, by utilizing applications' semantics to save the monitoring overhead. Second,  the runtime performs periodical garbage collection (GC) to trace and compact the alive data. Hence, utilizing GC to adjust the data layout brings no extra migration overhead.
+To maximize the energy savings and minimize the performance impact of hybrid memory, I have built several runtime systems, <a href="http://web.cs.ucla.edu/~harryxu/papers/wang-pldi19.pdf">[PLDI'19]</a>  <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-47099-3_3">[NPC'16]</a> <a href="">[TOCS'22]</a>, to manage the data layout of cloud applications. These systems are built on two major insights. First, the data objects of many cloud applications exhibit strong epoch behaviors and clear access patterns at a coarse granularity. Hence, I proposed to manage data layout at coarse-grained, e.g., data structure and function, by utilizing applications' semantics to save the monitoring overhead. Second,  the runtime performs periodical garbage collection (GC) to trace and compact the alive data. Hence, utilizing GC to adjust the data layout brings no extra migration overhead.
 
 
 	<h3>Resource Disaggregation</h3>
-As an emerging datacenter architecture, resource-disaggregation aims to reorganize datacenter hardware of each kind into their dedicated resource servers to improve resource utilization and fault tolerance, and simplify hardware adoption. These servers are connected by advanced network fabrics such as Infiniband and Intel Fabrics. As a result, the cloud applications running on the resource-disaggregated cluster can get compute and memory resources from different servers.	
+As an emerging datacenter architecture, resource-disaggregation aims to reorganize datacenter hardware of each kind into their dedicated resource servers to improve resource utilization and fault tolerance, and simplify hardware adoption. These servers are connected by advanced network fabrics such as Infiniband and Intel Fabrics. As a result, the cloud application running on the resource-disaggregated cluster can get compute and memory resources from different servers.	
 
 	<h4>#1 Runtime for Disaggregated Memory</h4>
 I developed a series of runtime systems to improve the data locality and reduce the resources racing problems of cloud applications running on the resource-disaggregated datacenter. <a href="http://web.cs.ucla.edu/~harryxu/papers/wang-osdi20.pdf">Semeru[OSDI'20]</a> separates the application threads and GC tracing threads of one program and schedules them to corresponding CPU servers and memory servers. As a result, the GC threads can run concurrently and continuously on the memory servers without interfering with the application threads running on CPU servers. At the same time, we also proposed Mako, a low-pause, concurrent compaction algorithm for the resource-disaggregated cluster. 
@@ -154,7 +168,7 @@ The existing paging and swap system are often used to manage the remote memory s
 	
 
 	<service class="relative" >
-	<h2>Service</h2>
+	<h1>Service</h1>
 	
 	<ul>
 	<li> <a href="https://conf.researchr.org/home/vee-2022">Virtual Execution Environments, VEE 2022</a>, Program Committee</br>
@@ -171,7 +185,7 @@ The existing paging and swap system are often used to manage the remote memory s
 	</service>
 
 	<publication class="relative">
-	<h2>Publications</h2>	
+	<h1>Publications</h1>	
 	
 	<ul>
 
@@ -181,14 +195,20 @@ The existing paging and swap system are often used to manage the remote memory s
 	</br>
 	</br>
 
+	<li> <a href="">SPECBOX: A Label-Based Transparent Speculation Scheme Against Transient Execution Attacks</a> </br>
+	by Bowen Tang, Chenggang Wu, Zhe Wang, Lichen Jia,  Pen-Chung Yew, Yueqiang Cheng, Yinqian Zhang, <b>Chenxi Wang</b>, Guoqing Harry Xu</br>
+	IEEE Transactions on Dependable and Secure Computing (TDSC), 2022 (Accepted)
+	</br>
+	</br>
+
 	<li> <a href="">Unified Holistic Memory Management Supporting Multiple Big Data Processing Frameworks over Hybrid Memories</a>	</br>
-	by Chen Lei, Jiacheng Zhao, <b>Chenxi Wang</b>, Ting Cao, John Zigman, Haris Volos, Onur Mutlu, Fang Lv, Xiaobing Feng, Guoqing Harry Xu, and Huimin Cui </br>
+	by Chen Lei, Jiacheng Zhao, <b>Chenxi Wang</b>, Ting Cao, John Zigman, Haris Volos, Onur Mutlu, Fang Lv, Xiaobing Feng, Guoqing Harry Xu, Huimin Cui </br>
 	ACM Transactions on Computer Systems (TOCS), 2022 (Minor Revision)
 	</br>
 	</br>
 
 	<li> <a href="https://dl.acm.org/doi/10.1145/3466820">Systemizing Interprocedural Static Analysis of Large-Scale Systems Code with Graspan</a>	</br>
-	by  Zhiqiang Zuo, Kai Wang, Aftab Hussain, Ardalan Amiri Sani, Yiyu Zhang, Shenming Lu, Wensheng Dou, Linzhang Wang, Xuandong Li, <b>Chenxi Wang</b>, and Guoqing Harry Xu </br>
+	by  Zhiqiang Zuo, Kai Wang, Aftab Hussain, Ardalan Amiri Sani, Yiyu Zhang, Shenming Lu, Wensheng Dou, Linzhang Wang, Xuandong Li, <b>Chenxi Wang</b>, Guoqing Harry Xu </br>
 	ACM Transactions on Computer Systems (TOCS), 2021
 	</br>
 	</br>
@@ -222,7 +242,7 @@ The existing paging and swap system are often used to manage the remote memory s
 
 	</publication>
 
-
+</div>
 
 </body>
 
