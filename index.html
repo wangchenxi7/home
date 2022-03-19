@@ -155,7 +155,7 @@ To maximize the energy savings and minimize the performance impact of hybrid mem
 As an emerging datacenter architecture, resource-disaggregation aims to reorganize datacenter hardware of each kind into their dedicated resource servers to improve resource utilization and fault tolerance, and simplify hardware adoption. These servers are connected by advanced network fabrics such as Infiniband and Intel Fabrics. As a result, the cloud application running on the resource-disaggregated cluster can get compute and memory resources from different servers.	
 
 	<h4>#1 Runtime for Disaggregated Memory</h4>
-I developed a series of runtime systems to improve the data locality and reduce the resources racing problems of cloud applications running on the resource-disaggregated datacenter. <a href="http://web.cs.ucla.edu/~harryxu/papers/wang-osdi20.pdf">Semeru[OSDI'20]</a> separates the application threads and GC tracing threads of one program and schedules them to corresponding CPU servers and memory servers. As a result, the GC threads can run concurrently and continuously on the memory servers without interfering with the application threads running on CPU servers. At the same time, we also proposed <a href="">Mako[PLDI'22]</a>, a low-pause, concurrent compaction algorithm for the resource-disaggregated cluster. 
+I developed a series of runtime systems to improve the data locality and reduce the resources racing problems of cloud applications running on the resource-disaggregated datacenter. <a href="http://web.cs.ucla.edu/~harryxu/papers/wang-osdi20.pdf">Semeru[OSDI'20]</a> separates the application threads and GC tracing threads of one program and schedules them to corresponding CPU servers and memory servers. As a result, the GC threads can run concurrently and continuously on the memory servers without interfering with the application threads running on CPU servers. At the same time, we also proposed <a href="">Mako[PLDI'22]</a>, a low-pause, concurrent compaction algorithm for the resource-disaggregated cluster. <a href="">MemLiner[OSDI'22]</a> lines up the memory access of application threads and GC threads to reduce their interference, resulting in a small working set and clean access patterns for the prefetcher. 
 
 	<h4>#2 Swap System for Disaggregated Memory</h4>
 The existing paging and swap system are often used to manage the remote memory server. However, the current swap data plane was designed long ago for slow disk-based swapping, and hence can become a major performance bottleneck when fast remote memory is used, such as 1) lack of performance isolation and (2) poor scalability. To solve these problems, I redesigned the swap system, <a href="">[NSDI'23-revision]</a>, to provide holistic resources isolation and adaptive management strategies, e.g., swap-entry allocation, prefetching and scheduling, for the diverse cloud applications.
@@ -194,9 +194,15 @@ The existing paging and swap system are often used to manage the remote memory s
 	</br>
 	</br>
 	
-<li> <a href="">Mako: A Low-Pause, High-Throughput Evacuating Collector for Memory-Disaggregated Datacenters</a>	</br>
+	<li> <a href="">MemLiner: Lining up Tracing and Application for a Far-Memory-Friendly Runtime</a>	</br>
+	by <b>Chenxi Wang*</b>, Haoran Ma* (co-first), Shi Liu, Yifan Qiao, Jonathan Eyolfson, Christian Navasca, Shan Lu, Guoqing Harry Xu </br>
+	The USENIX Symposium on Operating Systems Design and Implementation (OSDI), 2022 (Accepted)
+	</br>
+	</br>
+
+	<li> <a href="">Mako: A Low-Pause, High-Throughput Evacuating Collector for Memory-Disaggregated Datacenters</a>	</br>
 	by Haoran Ma, Shi Liu, <b>Chenxi Wang</b>, Yifan Qiao, Michael D. Bond, Steve Blackburn, Miryung Kim, Guoqing Harry Xu </br>
-	 The ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI), 2022 (Accepted)
+	The ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI), 2022 (Accepted)
 	</br>
 	</br>
 
