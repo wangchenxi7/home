@@ -170,7 +170,7 @@ As an emerging datacenter architecture, resource-disaggregation aims to reorgani
 I developed a series of runtime systems to improve the data locality and reduce the resources racing problems of cloud applications running on the resource-disaggregated datacenter. <a href="http://web.cs.ucla.edu/~harryxu/papers/wang-osdi20.pdf">Semeru[OSDI'20]</a> separates the application threads and GC tracing threads of one program and schedules them to corresponding CPU servers and memory servers. As a result, the GC threads can run concurrently and continuously on the memory servers without interfering with the application threads running on CPU servers. At the same time, we also proposed <a href="https://github.com/wangchenxi7/home/blob/master/files/Mako%40PLDI22.pdf">Mako[PLDI'22]</a>, a low-pause, concurrent compaction algorithm for the resource-disaggregated cluster. <a href="">MemLiner[OSDI'22]</a> lines up the memory access of application threads and GC threads to reduce their interference, resulting in a small working set and clean access patterns for the prefetcher. 
 
 	<h4>#2 Swap System for Disaggregated Memory</h4>
-The existing paging and swap system are often used to manage the remote memory server. However, the current swap data plane was designed long ago for slow disk-based swapping, and hence can become a major performance bottleneck when fast remote memory is used, such as 1) lack of performance isolation and (2) poor scalability. To solve these problems, I redesigned the swap system, <a href="">[NSDI'23]</a>, to provide holistic resources isolation and adaptive management strategies, e.g., swap-entry allocation, prefetching and scheduling, for the diverse cloud applications.
+The existing paging and swap system are often used to manage the remote memory server. However, the current swap data plane was designed long ago for slow disk-based swapping, and hence can become a major performance bottleneck when fast remote memory is used, such as 1) lack of performance isolation and (2) poor scalability. To solve these problems, I redesigned the swap system, <a href="https://arxiv.org/pdf/2203.09615.pdf">Canvas[NSDI'23]</a>, to provide holistic resources isolation and adaptive management strategies, e.g., swap-entry allocation, prefetching and scheduling, for the diverse cloud applications.
 
 	</research>
 
@@ -288,7 +288,6 @@ The existing paging and swap system are often used to manage the remote memory s
 </body>
 
 
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/2.js?i=5i71e8nqoa9&amp;m=0&amp;s=130&amp;c=ff0000&amp;t=1" async="async"></script>
 
 
 
