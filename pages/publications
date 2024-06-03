@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Chenxi Wang's publications </title>
+</head>
+
+<style>
+
+
+
+.wordWrap {
+	word-wrap: break-word;      /* IE 5.5-7 */
+  white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+  white-space: pre-wrap;      /* current browsers */
+}
+
+
+div.content {
+	max-width: 1100px;
+	margin: 20px;
+}
+
+publication_date {
+	position: relative;	
+	top: 50px;
+	left: 30px;		
+}
+
+</style>
+
+
+<body>
+
+	<publication_date class="relative">
+  </br>
+	(Asterisk(*) means corresponding author)
+	</br>
+
+    <h2>  2024 </h2>
+  	<ul>
+	    <li> <a href=" ">A Tale of Two Paths: Toward a Hybrid Data Plane for Efficient Far-Memory Applications</a>	</br>
+	    by Lei Chen, Shi Liu(co-first), <b>Chenxi Wang*</b>, Haoran Ma, Yifan Qiao, Zhe Wang, Chenggang Wu, Youyou Lu, Xiaobing Feng, Huimin Cui, Shan Lu, Guoqing Harry Xu* </br>
+	    The USENIX Symposium on Operating Systems Design and Implementation (OSDI), 2024
+	    </br>
+	    </br>
+
+      <li> <a href="">ScalaAFA: Constructing User-Space All-Flash Array Engine with Holistic Designs</a>  </br>
+      by Shushu Yi, Xiurui Pan, Qiao Li, Qiang Li, <b>Chenxi Wang</br>, Bo Mao, Myoungsoo Jung, Jie Zhang </br>
+      The USENIX Annual Technical Conference (ATC), 2024
+      </br>
+	    </br>
+		
+	    <li> <a href="https://ieeexplore.ieee.org/document/10476398">Enabling Large Dynamic Neural Network Training with Learning-based Memory Management</a>	</br>
+	    by  Jie Ren, Dong Xu, Shuangyan Yang, Jiacheng Zhao, Zhicheng Li, Christian Navasca, <b>Chenxi Wang</b>, Harry Xu, Dong Li </br>
+	    The IEEE International Symposium on High-Performance Computer Architecture (HPCA), 2024
+	    </br>
+	    </br>
+
+    </ul>
+
+
+    <h2>  2023 </h2>
+
+  </publication_date>
+
+</body>
+</html>
 
