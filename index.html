@@ -199,6 +199,12 @@ I developed a series of runtime systems to improve data locality and mitigate re
 	<h4>(2) Kernel for Disaggregated Memory</h4>
 The existing paging and swap systems are often used to manage the remote memory server. However, the current swap data plane was designed long ago for slow disk-based swapping and hence can become a major performance bottleneck when fast remote memory is used, such as 1) lack of performance isolation and (2) poor scalability. To solve these problems, I redesigned the swap system, <a href="https://arxiv.org/pdf/2203.09615.pdf">Canvas[NSDI'23]</a>, to provide holistic resources isolation and adaptive management strategies, e.g., swap-entry allocation, prefetching and scheduling, for the diverse cloud applications.
 
+
+	<h3>#2 Operating system for GPUs</h3>
+
+The rapid evolution of AI workloads has driven an unprecedented demand for GPUs in datacenters, making efficient utilization and cost reduction critically important. However, it is challenging to meet the diverse performance requirements of individual AI models while simultaneously optimizing resource usage. My research focuses on building operating system–level support for GPUs to enable transparent, fine-grained resource management. 
+
+		
 	</research>
 
 
