@@ -184,7 +184,7 @@ iptracker {
 	My current research is to build cross-layer systems for <a href="https://link.springer.com/book/10.1007/978-3-031-01761-2">warehouse-scale computers</a>.
 		
 
-	<h3>#1 Resource Disaggregation</h3>
+	<h3>#1 System for Resource Disaggregation</h3>
 As an emerging datacenter architecture, resource-disaggregation aims to reorganize datacenter hardware of each kind into dedicated resource servers to improve resource utilization, fault tolerance and simplify hardware adoption. These servers are connected by <a href="https://dl.acm.org/doi/10.1145/3015146">advanced network fabrics</a>, such as Infiniband and Intel Fabrics. As a result, the cloud application running on the resource-disaggregated cluster can get compute and memory resources from different servers.	
 
 	<h4>(1) Runtime for Disaggregated Memory</h4>
@@ -194,11 +194,11 @@ I developed a series of runtime systems to improve data locality and mitigate re
 The existing paging and swap systems are often used to manage the remote memory server. However, the current swap data plane was designed long ago for slow disk-based swapping and hence can become a major performance bottleneck when fast remote memory is used, such as 1) lack of performance isolation and (2) poor scalability. To solve these problems, I redesigned the swap system, <a href="https://arxiv.org/pdf/2203.09615.pdf">Canvas[NSDI'23]</a>, to provide holistic resources isolation and adaptive management strategies, e.g., swap-entry allocation, prefetching and scheduling, for the diverse cloud applications.
 
 
-	<h3>#2 Operating System for GPUs</h3>
+	<h3>#2 System for GPUs</h3>
 The rapid evolution of AI workloads has driven an unprecedented demand for GPUs in datacenters, making efficient utilization and cost reduction critically important. However, it is challenging to meet the diverse performance requirements of individual AI models while simultaneously optimizing resource usage. My research focuses on building operating system–level support for GPUs to enable transparent, fine-grained resource management. 
 
 
-	<h3>#3 Operating System for Mobile Devices</h3>
+	<h3>#3 System for Mobile Devices</h3>
 The Android ecosystem continually expands, resulting in wide variations in CPU and memory demands across applications. The diversity and complexity of applications pose significant challenges for systems, especially in thread scheduling and memory management. For example, the long-running apps intensify memory pressure and result in more GC overhead, which degrades system smoothness and responsiveness. 
 
 We are currently researching the mismatches between the applications and the Android system, and have successfully resolved several practical issues. One such issue is the WeakReference Block (<a href="https://android-review.googlesource.com/c/platform/art/+/3683212">https://android-review.googlesource.com/c/platform/art/+/3683212</a>), which refers to the application thread being blocked during the GC (garbage collection) processes WeakReferences. By profiling details on WeakReference blocking, we restructured the code for accessing Weak References during GC, resulting in an over 80% reduction of WeakReference-induced blocking. [This code patch](<a href="https://github.com/ICTPLSys/Android-Art-WeakReference">https://github.com/ICTPLSys/Android-Art-WeakReference</a>) has been tested by Xiaomi and Honor and is planned for deployment in their systems.		
