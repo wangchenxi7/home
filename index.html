@@ -201,10 +201,14 @@ The existing paging and swap systems are often used to manage the remote memory 
 
 
 	<h3>#2 Operating system for GPUs</h3>
-
 The rapid evolution of AI workloads has driven an unprecedented demand for GPUs in datacenters, making efficient utilization and cost reduction critically important. However, it is challenging to meet the diverse performance requirements of individual AI models while simultaneously optimizing resource usage. My research focuses on building operating system–level support for GPUs to enable transparent, fine-grained resource management. 
 
-		
+
+<h3>#3 Operating system for Mobile Devices</h3>
+The Android ecosystem continually expands, resulting in wide variations in CPU and memory demands across applications. The diversity and complexity of applications pose significant challenges for systems, especially in thread scheduling and memory management. For example, the long-running apps intensify memory pressure and result in more GC overhead, which degrades system smoothness and responsiveness. 
+
+We are currently researching the mismatches between the applications and the Android system, and have successfully resolved several practical issues. One such issue is the WeakReference Block (<a href="https://android-review.googlesource.com/c/platform/art/+/3683212">https://android-review.googlesource.com/c/platform/art/+/3683212</a>), which refers to the application thread being blocked during the GC (garbage collection) processes WeakReferences. By profiling details on WeakReference blocking, we restructured the code for accessing Weak References during GC, resulting in an over 80% reduction of WeakReference-induced blocking. [This code patch](<a href="https://github.com/ICTPLSys/Android-Art-WeakReference">https://github.com/ICTPLSys/Android-Art-WeakReference</a>) has been tested by Xiaomi and Honor and is planned for deployment in their systems.		
+	
 	</research>
 
 
